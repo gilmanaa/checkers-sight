@@ -1,5 +1,5 @@
-var checkers = {}
-checkers.blackGame = [
+var Checkers = {}
+Checkers.blackGame = [
     [1, 2, 2, 3],
     [6, 5, 7, 4],
     [3, 2, 4, 3],
@@ -49,7 +49,7 @@ checkers.blackGame = [
     [7, 0, 6, 1],
     [7, 2, 5, 0]
 ]
-checkers.whiteGame = [
+Checkers.whiteGame = [
     [1, 2, 0, 3],
     [4, 5, 3, 4],
     [3, 2, 2, 3],
@@ -98,7 +98,7 @@ checkers.whiteGame = [
     [7, 4, 6, 3],
     [5, 2, 7, 4]
 ]
-checkers.illegalMove = [
+Checkers.illegalMove = [
     [1, 2, 0, 3],
     [4, 5, 3, 4],
     [3, 2, 2, 3],
@@ -147,7 +147,7 @@ checkers.illegalMove = [
     [7, 4, 6, 3],
     [5, 2, 7, 4]
 ]
-checkers.incompleteGame = [
+Checkers.incompleteGame = [
     [3, 2, 4, 3],
     [4, 5, 3, 4],
     [5, 2, 6, 3],
@@ -166,12 +166,12 @@ $(document).ready(function () {
         buttons.addClass("hide")
         var board = $("#board")
         board.removeClass("hide")
-        checkers.initializeBoard()
+        Checkers.initializeBoard()
         var game = event.target.value
-        checkers.playGame(checkers[game])
+        Checkers.playGame(Checkers[game])
     })
 })
-checkers.initializeBoard = function () {
+Checkers.initializeBoard = function () {
     var boardLength = 8
     var board = $("#board")
     board.html("")
@@ -214,7 +214,7 @@ checkers.initializeBoard = function () {
         yCounter++
     }
 }
-checkers.movePiece = function (curX, curY, toX, toY) {
+Checkers.movePiece = function (curX, curY, toX, toY) {
     var curBoardPiece = $(`#${curX}-${curY}`)
     var toBoardPiece = $(`#${toX}-${toY}`)
     var xMove = Math.abs(toX - curX)
@@ -275,20 +275,20 @@ checkers.movePiece = function (curX, curY, toX, toY) {
         return "Incomplete Game"
     }
 }
-checkers.playGame = function (game) {
+Checkers.playGame = function (game) {
     var counter = 0
     var play = setInterval(function () {
-        var status = checkers.movePiece(game[counter][0], game[counter][1], game[counter][2], game[counter][3])
+        var status = Checkers.movePiece(game[counter][0], game[counter][1], game[counter][2], game[counter][3])
         if (status === "Illegal Move") {
-            checkers.endGame(play,status,counter)
+            Checkers.endGame(play,status,counter)
         }
         counter++
         if (counter === game.length) {
-            checkers.endGame(play,status,counter)
+            Checkers.endGame(play,status,counter)
         }
     }, 1000)
 }
-checkers.endGame = function (play,status,counter) {
+Checkers.endGame = function (play,status,counter) {
     clearInterval(play)
     var gameNotification = $("<div>")
     var moveTracker = status === "Illegal Move" ? 1 : 0
