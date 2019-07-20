@@ -4,6 +4,7 @@ body {
 }
 #board-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -32,9 +33,24 @@ body {
     background-image: url(../images/black-piece.png);
     background-size: cover;
     background-repeat: no-repeat;
+    animation: move 1s linear;
 }
 .white-piece {
     background-image: url(../images/white-piece.png);
     background-size: cover;
     background-repeat: no-repeat;
+    animation: move 1s linear;
+}
+@keyframes move {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.game-notification {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: dodgerblue;
+    color: white;
+    font-size: 16px;
+    margin: 3px;
 }
