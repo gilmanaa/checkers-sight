@@ -1,4 +1,40 @@
 body {
     margin: 0px;
-    background-color: thistle;
+    background-color: lavenderblush;
+}
+#board-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#board {
+    padding: 10px;
+    background-color: wheat;
+    border: 1px solid black;
+}
+.board-row {
+    font-size: 0px;
+}
+.board-square {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    display: inline-block;
+}
+.bg-black {
+    background-color: chocolate;
+}
+.bg-white {
+    background-color: blanchedalmond;
+}
+.black-piece {
+    background-image: url(../images/black-piece.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.white-piece {
+    background-image: url(../images/white-piece.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
